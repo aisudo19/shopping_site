@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>ろくまる農園</title>
+</head>
+<body>
+商品追加<br>
+<?php 
+session_start();
+session_regenerate_id(true);//合言葉を都度変える。セッションハイジャック対策。
+
+if(isset($_SESSION['login']) == false){
+    echo "ログインされていません。<br>";
+    echo '<a href="../staff_login/staff_login.html">ログインする</a><br>';
+    exit();
+}else{
+    echo $_SESSION['staff_name']."さんログイン中<br>";
+}
+?>
+<form action="pro_add_check.php" method="post" enctype="multipart/form-data">
+    商品名を入力してください。<br>
+    <input type="text" name="name"><br>
+    価格を入力してください。<br>
+    <input type="text" name="kakaku"><br>
+    画像を選択してください。<br>
+    <input type="file" name="gazou" style="width: 400px"><br>
+    <input type="button" onclick="history.back()" value="戻る">
+    <input type="submit" value="送信する">
+</form>
+</body>
+</html>
+

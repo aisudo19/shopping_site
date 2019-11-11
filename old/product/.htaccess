@@ -1,0 +1,12 @@
+php_value default_charset "UTF-8"
+php_value mbstring.language "neutral"
+php_value mbstring.internal_encoding "UTF-8"
+php_flag mbstring.encoding_translation Off
+php_value mbstring.http_input "pass"
+php_value mbstring.http_output "pass"
+php_flag magic_quotes_gpc On
+php_value session.use_trans_sid "1"
+php_flag short_open_tag On
+php_flag safe_mode Off
+php_flag display_errors On
+php_value error_reporting "E_ALL &amp; ~E_NOTICE"
