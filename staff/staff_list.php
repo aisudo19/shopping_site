@@ -29,7 +29,7 @@
     </div>
     <div class="container">
         <div class="d-flex flex-row">
-            <h3 class="font-weight-normal my-0 mr-md-auto font-weight-normal">スタッフ一覧管理</h3>
+            <h3 class="font-weight-normal my-0 mr-md-auto font-weight-normal mb-3">スタッフ一覧管理</h3>
         </div>
         <?php
 

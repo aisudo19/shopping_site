@@ -23,23 +23,28 @@ try{
 require_once("../common/common.php");
 $post = sanitize($_POST);
 $staff_code = $post['staffcode'];
-if(isset($staff_code) == false){
-    header('Location: staff_ng.php');
-    exit();
-}
-if(isset($post['edit'])== true){
-    header('Location: staff_edit.php?staffcode='.$staff_code);
-    exit();
-}elseif(isset($post['delete']) == true){
-    header('Location: staff_delete.php?staffcode='.$staff_code);
-    exit();
-}elseif(isset($post['view']) == true){
-    header('Location: staff_view.php?staffcode='.$staff_code);
-    exit();
-}elseif(isset($post['add']) == true){
+
+if(isset($post['add']) == true){
     header('Location: staff_add.php');
     exit();
 }
+
+if(isset($staff_code) == false){
+    header('Location: staff_ng.php');
+    exit();
+}else{
+    if(isset($post['edit'])== true){
+        header('Location: staff_edit.php?staffcode='.$staff_code);
+        exit();
+    }elseif(isset($post['delete']) == true){
+        header('Location: staff_delete.php?staffcode='.$staff_code);
+        exit();
+    }elseif(isset($post['view']) == true){
+        header('Location: staff_view.php?staffcode='.$staff_code);
+        exit();
+    }
+}
+
 }catch(Exception $e){
     echo $e;
     exit();
