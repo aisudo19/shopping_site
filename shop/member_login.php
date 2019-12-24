@@ -15,12 +15,14 @@
             session_start();
             session_regenerate_id(true); //合言葉を都度変える。セッションハイジャック対策。
 
-            if (isset($_SESSION['login']) == false) {
-                echo "ログインされていません。<br>";
-                echo '<a href="../staff_login/staff_login.php">ログインする</a><br>';
-                exit();
+
+            if (isset($_SESSION['member_login']) == true) {
+                echo "ようこそ" . $_SESSION['member_name'] . "様<br>";
+                // echo $_SESSION['staff_name']."さんログイン中<br>";
+                echo '<a href="member_logout.php">ログアウト</a><br><br>';
             } else {
-                echo "管理者モード<br>" . $_SESSION['staff_name'] . "さんログイン中<br>";
+                echo "ようこそゲスト様<br>";
+                echo '<a href="./member_login.php">会員ログイン</a><br>';
             }
 
             ?>
@@ -30,25 +32,35 @@
 
     <div class="container">
         <div class="d-flex flex-row">
-            <h3 class="font-weight-normal my-0 mr-md-auto font-weight-normal mb-3">商品追加</h3>
-
+            <h3 class="font-weight-normal my-0 mr-md-auto font-weight-normal">会員ログイン</h3>
         </div>
-        <?php
-        ?>
-        <form action="pro_add_check.php" method="post" enctype="multipart/form-data">
-            商品名を入力してください。<br>
-            <input type="text" name="name"><br>
-            価格を入力してください。<br>
-            <input type="text" name="kakaku"><br>
-            画像を選択してください。<br>
-            <input type="file" name="gazou" style="width: 400px"><br>
-            <input class="btn btn-secondary mt-3" type="button" onclick="history.back()" value="戻る">
-            <input class="btn btn-primary mt-3" type="submit" value="送信する">
+
+        <!-- <form action="member_login_check.php" method="post">
+            登録メールアドレス<br>
+            <input type="text" name="email"><br>
+            パスワード<br>
+            <input type="text" name="pass"><br>
+            <input type="submit" class="btn btn-lg btn-primary mt-3" value="ログイン">
+        </form> -->
+
+        <form action="member_login_check.php" method="post">
+            <div class="form-group">
+                <label for="InputEmail">登録メールアドレス</label>
+                <input type="email" name="email" class="form-control"  id="InputEmail" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group">
+                <label for="InputPassword1">パスワード</label>
+                <input type="password" class="form-control" id="InputPassword1" name="pass">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+
+
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
 </body>
 
 </html>

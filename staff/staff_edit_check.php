@@ -13,7 +13,7 @@ session_regenerate_id(true);//合言葉を都度変える。セッションハ�
 
 if(isset($_SESSION['login']) == false){
     echo "ログインされていません。<br>";
-    echo '<a href="../staff_login/staff_login.html">ログインする</a><br>';
+    echo '<a href="../staff_login/staff_login.php">ログインする</a><br>';
     exit();
 }else{
     echo $_SESSION['staff_name']."さんログイン中<br>";
