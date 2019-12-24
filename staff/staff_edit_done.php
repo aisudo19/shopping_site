@@ -27,9 +27,9 @@ $staff_code = $post['code'];
 $staff_name = $post['name'];
 $staff_pass = $post['pass'];    
 
-$dsn='mysql:dbname=shop;host=localhost;charset=utf8';
-$user='root';
-$password='root';
+$dsn='mysql:dbname=tqmsbzgg_shop;host=tqmsbzgg_shop;charset=utf8';
+$user='tqmsbzgg_shop';
+$password='%RdFsbr)I})8';
 $dbh=new PDO($dsn,$user,$password);
 $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
