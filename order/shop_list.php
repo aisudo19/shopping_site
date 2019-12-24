@@ -21,8 +21,7 @@ if(isset($_SESSION['login']) == false){
 }
 try{
 
-$dsn='mysql:dbname=tqmsbzgg_shop;host=tqmsbzgg_shop;charset=utf8';
-$user='tqmsbzgg_shop';
+$dsn='mysql:dbname=tqmsbzgg_shop;host=localhost;charset=utf8';$user='tqmsbzgg_shop';
 $password='%RdFsbr)I})8';
 $dbh=new PDO($dsn,$user,$password);
 $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
